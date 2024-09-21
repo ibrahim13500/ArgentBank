@@ -1,0 +1,9 @@
+@use "../../styles/utils/_variables";
+
+.container__notfound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0px 50px 0px;
+  background-color: variables.$secondary;
+}

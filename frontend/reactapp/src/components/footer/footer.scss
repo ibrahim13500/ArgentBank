@@ -1,0 +1,17 @@
+@use "../../styles/utils/_variables";
+
+// Style Footer :
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 2px solid variables.$septenary;
+  padding-top: 30px;
+  padding-bottom: 25px;
+
+  p {
+    font-size: 16px;
+    font-weight: 300;
+    color: variables.$secondary;
+  }
+}

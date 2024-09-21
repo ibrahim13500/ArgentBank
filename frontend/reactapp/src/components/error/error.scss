@@ -1,0 +1,53 @@
+@use "../../styles/utils/_variables";
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 130px;
+  width: 100%;
+
+  @media only screen and (max-width: 600px) {
+    gap: 100px;
+  }
+
+  img {
+    width: 100%;
+    max-width: 450px;
+
+    @media only screen and (max-width: 1200px) {
+      max-width: 400px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      max-width: 250px;
+    }
+  }
+
+  p {
+    font-size: 33px;
+    font-weight: 500;
+    width: max-content;
+    color: variables.$senary;
+    text-align: center;
+
+    @media only screen and (max-width: 1200px) {
+      font-size: 30px;
+      max-width: 80%;
+      line-height: 45px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      max-width: 70%;
+      font-size: 25px;
+    }
+  }
+
+  span {
+    color: variables.$senary;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: underline;
+  }
+}

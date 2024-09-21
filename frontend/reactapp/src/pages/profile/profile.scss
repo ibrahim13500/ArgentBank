@@ -1,0 +1,7 @@
+@use "../../styles/utils/_variables";
+
+// Style Profile :
+.container__profile {
+  padding: 10px 0px 30px 0px;
+  background-color: variables.$octonary;
+}
