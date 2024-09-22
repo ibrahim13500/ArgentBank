@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Form.scss";
 import loginUser from "../../services/api/LoginUser";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
+import { setIsLogin, setToken } from "../../services/features/LoginUser"; // Ajuste le chemin si nécessaire
 
 const Form = () => {
   const [email, setEmail] = useState("");
@@ -44,7 +43,7 @@ const Form = () => {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            autoComplete="username" // Correction ici
+            autoComplete="username"
           />
         </div>
         <div className="form__input">
@@ -55,7 +54,7 @@ const Form = () => {
             value={password}
             required
             onChange={(e) => setPassword(e.target.value)}
-            autoComplete="current-password" // Correction ici
+            autoComplete="current-password"
           />
         </div>
         <div className="form__check">

@@ -3,7 +3,9 @@ import React from "react";
 import "./User.scss";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
+import { updateUser } from "../../services/api/UpdateUser";
+import { setFirstName,setLastName } from "../../services/features/GetUserProfile";
+import spinner from "../../assets/svg/spinner.svg";
 
 const User = () => {
   const dispatch = useDispatch();

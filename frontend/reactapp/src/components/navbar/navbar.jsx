@@ -6,7 +6,8 @@ import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import spinner from "../../assets/svg/spinner.svg";
-
+import { setIsLogin, setToken } from "../../services/features/LoginUser"; // Ajuste le chemin si nécessaire
+import {setFirstName,setLastName} from "../../services/features/GetUserProfile";
 
 const Navbar = () => {
   const dispatch = useDispatch();
