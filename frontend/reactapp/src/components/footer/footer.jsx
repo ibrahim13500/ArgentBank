@@ -1,15 +1,12 @@
-// Import modules:
-import React from "react";
-import "./Footer.scss";
-
+import React from 'react';
 
 const Footer = () => {
-  return (
-    <footer className="footer">
-      <p>Copyright 2020 Argent Bank</p>
-    </footer>
-  );
+
+    return (
+        <div className="container_footer">
+            <p className="footer-text">Copyright 2020 Argent Bank</p>
+        </div>
+    );
 };
 
-// Export Footer
 export default Footer;

@@ -1,17 +1,16 @@
-// Import modules:
-import React from "react";
-import "./Home.scss";
-import Banner from "../../components/banner/banner";
-import Card from "../../components/card/Card";
+import React from 'react';
+import BannerHome from '../../components/bannerHome/BannerHome';
+import Features from '../../components/features/Features';
 
 const Home = () => {
-  return (
-    <main className="container__home">
-      <Banner />
-      <Card />
-    </main>
-  );
+    return (
+        <div>
+            <div>
+                <BannerHome/>
+                <Features/>
+            </div>
+        </div>
+    );
 };
 
-// Export Home :
 export default Home;
