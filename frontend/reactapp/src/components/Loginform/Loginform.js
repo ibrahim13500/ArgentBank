@@ -3,37 +3,53 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loginFailed, loginSuccess } from "../../Redux/Authactions.js";
 
+// Validation simplifiée de l'email
 const ValidEmail = (email) => {
-  const regex = /^\S+@\S+\.\S+$/;
-  return regex.test(email);
+  const atIndex = email.indexOf("@");
+  if (atIndex === -1) return false;
+  const dotIndex = email.indexOf(".", atIndex);
+  return dotIndex > atIndex + 1;
 };
 
+// Validation simplifiée du mot de passe
 const ValidPassword = (password) => {
-  const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{3,}$/;
-  return regex.test(password);
+  if (password.length < 3) return false;
+
+  let hasLetter = false;
+  let hasNumber = false;
+
+  for (let i = 0; i < password.length; i++) {
+    const char = password[i];
+    if (/[A-Za-z]/.test(char)) {
+      hasLetter = true;
+    } else if (/[0-9]/.test(char)) {
+      hasNumber = true;
+    }
+
+    if (hasLetter && hasNumber) return true;
+  }
+
+  return hasLetter && hasNumber;
 };
 
 function Loginform() {
-  /* Allows you to retrieve the data entered by the user in the form */
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  /* Indicates an error message if data is invalid */
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  /* Asynchronous form function */
   const handleSubmit = async (event) => {
     event.preventDefault();
-    /* Handle error message */
+
     if (!ValidEmail(email)) {
-      setErrorMessage("Invalid email adress");
+      setErrorMessage("Adresse email invalide");
       return;
     }
     if (!ValidPassword(password)) {
-      setErrorMessage("Invalid password");
+      setErrorMessage("Mot de passe invalide");
       return;
     }
     try {
@@ -54,7 +70,7 @@ function Loginform() {
         }
         navigate("/Userpage");
       } else {
-        const error = "Incorrect email/password";
+        const error = "Email/mot de passe incorrect";
         dispatch(loginFailed(error));
       }
     } catch (error) {
@@ -65,24 +81,26 @@ function Loginform() {
   return (
     <section className="sign-in-content">
       <i className="fa fa-user-circle"></i>
-      <h2>Sign In</h2>
+      <h2>Se Connecter</h2>
       <form onSubmit={handleSubmit}>
         <div className="input-wrapper">
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username">Email</label>
           <input
             id="username"
             type="text"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
+            autoComplete="username"
           />
         </div>
         <div className="input-wrapper">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Mot de Passe</label>
           <input
             id="password"
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
+            autoComplete="current-password"
           />
         </div>
         <div className="input-remember">
@@ -92,9 +110,9 @@ function Loginform() {
             checked={rememberMe}
             onChange={(event) => setRememberMe(event.target.checked)}
           />
-          <label htmlFor="remember-me">Remember me</label>
+          <label htmlFor="remember-me">Se souvenir de moi</label>
         </div>
-        <button className="sign-in-button">Sign In</button>
+        <button className="sign-in-button">Se Connecter</button>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
       </form>
     </section>
