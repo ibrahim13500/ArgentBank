@@ -26,8 +26,8 @@
   
   .error .button-404 {
     align-items: center;
-    background-color: #00bc77;
-    border-color: #00bc77;
+    background-color: #ff4d4d; /* Couleur rouge */
+    border: none; /* Suppression de la bordure par défaut */
     color: #fff;
     font-size: 1.1rem;
     font-weight: bold;
@@ -35,4 +35,14 @@
     margin-top: 2rem;
     max-width: 12.5rem;
     padding: 0.8rem;
+    border-radius: 5px; /* Coins arrondis */
+    box-shadow: 0 4px 20px rgba(255, 77, 77, 0.3); /* Ombre douce */
+    transition: background-color 0.3s, transform 0.3s; /* Transition pour les effets */
+    cursor: pointer; /* Changement de curseur */
   }
+  
+  .error .button-404:hover {
+    background-color: #e60000; /* Couleur rouge plus foncé au survol */
+    transform: translateY(-2px); /* Légère élévation au survol */
+  }
+  

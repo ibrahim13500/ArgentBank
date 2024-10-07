@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ErrorSign from "../../designs/img/ERROR.webp";
+import ErrorSign from "../../designs/img/error.jpg";
 
 /* Error Page  */
 const Error = () => (
@@ -9,8 +9,7 @@ const Error = () => (
       <section className="error">
         <h2 aria-hidden="true">Error 404</h2>
         <img src={ErrorSign} alt="404 Error" className="red-error" />
-        <p className="text-error">La page demandée n'existe pas</p>
-        <p className="text-error">Veuillez retourner à la page d'accueil.</p>
+        <p className="text-error">La page demandée est introuvable</p>
         <Link to="/">
           <button className="button-404">Retour à la page d'accueil</button>
         </Link>
