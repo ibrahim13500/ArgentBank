@@ -78,9 +78,7 @@ function Loginform() {
 
         // Stocke le token dans sessionStorage ou localStorage selon l'option "se souvenir de moi"
         sessionStorage.setItem("token", token);
-        if (rememberMe) {
-          localStorage.setItem("token", token);
-        }
+    
 
         // Redirection vers la page de profil après la connexion
         navigate("/Userpage");
